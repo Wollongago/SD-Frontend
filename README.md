@@ -36,7 +36,7 @@
     <a href="https://github.com/malkmaneth/gym_exercises"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/malkmaneth/gym_exercises">View Demo</a>
+    <a href="https://exercise-alts.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/malkmaneth/gym_exercises/issues">Report Bug</a>
     ·
