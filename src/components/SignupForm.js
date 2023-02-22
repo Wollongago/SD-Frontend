@@ -10,7 +10,7 @@ const SignupForm = () => {
     const[address,setAddress]=useState('')
     const[password,setPassword]=useState('')
     const[role,setRole]=useState('')
-   
+
 
 
 
