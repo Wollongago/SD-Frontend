@@ -44,6 +44,8 @@
   </p>
 </div>
 
+## To run
+run `npm i react-scripts --legacy-peer-deps` once if you havent done this then `npm start`
 
 
 
