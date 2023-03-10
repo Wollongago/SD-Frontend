@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Stack, Typography, Button } from '@mui/material'
 
-import HeroBannerImage from '../assets/images/banner.png';
+import HeroBannerImage from '../assets/images/homebanner.png';
 
 const HeroBanner = () => {
   return (
@@ -22,18 +22,9 @@ const HeroBanner = () => {
             Check out exercises alternatives
         </Typography>
         <Button variant="contained" color="error" href="#exercises" sx={{ backgroundColor: '#FF2625', padding: '10px' }}>Explore Exercises</Button>
-        <Typography
-            fontWeight={600}
-            color="#FF2625"
-            sx={{
-                opacity: 0.1,
-                display: { lg: 'block', xs: 'none'}
-            }}
-            fontSize={200}
-        >
-            Exercise
-        </Typography>
-        {/* <img src={HeroBannerImage} alt="banner" className="hero-banner-img"/> */}
+        
+        
+        <img src={HeroBannerImage} alt="banner" className="hero-banner-img"/>
     </Box>
   )
 }

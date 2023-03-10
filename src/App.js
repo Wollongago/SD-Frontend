@@ -7,7 +7,10 @@ import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-
+import TourDetail from './pages/TourDetail';
+import CreateTour from './pages/CreateTour';
+import MyTours from './pages/MyTours';
+import EditTour from './pages/EditTour';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -19,9 +22,12 @@ const App = () => (
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* <Route path="/exercise/:id" element={<ExerciseDetail />} /> */}
+      <Route path="/tour/:id" element={<TourDetail />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/create" element={<CreateTour />} />
+      <Route path="/mytours" element={<MyTours />} />
+      <Route path="/edit-tour/:id" element={<EditTour />} />
     </Routes>
     <Footer />
   </Box>

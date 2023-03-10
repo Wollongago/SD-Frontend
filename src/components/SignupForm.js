@@ -1,41 +1,57 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { Box, Stack, Typography, Button , TextField, Container, Paper, makeStyles, MenuItem} from '@mui/material'
 
 
 
 const SignupForm = () => {
+    const navigate = useNavigate();
     const paperStyle={padding:'50px 20px', width:600,margin:"20px auto"}
     const[name,setName]=useState('')
     const[address,setAddress]=useState('')
     const[password,setPassword]=useState('')
-    const[role,setRole]=useState('')
-
-
-
+    const[role,setRole]=useState(true)
 
     const handleClick=(e)=>{
     e.preventDefault()
-    const user={name,address, password}
+    const user={'name':name,'email': address, 'password': password, 'tourProvider': (role === 'tp' ? true : false)}
     console.log(user)
-    fetch("http://localhost:8080/student/add",{
+    fetch("http://localhost:8000/user/register",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(user)
-
     }).then(()=>{
     console.log("New User added")
+    console.log("Storing info")
+    fetch(`http://localhost:8000/user/${address}`)
+        .then(res=>res.json())
+        .then((result)=>{
+        console.log("test")
+        console.log(result) 
+
+        localStorage.setItem('userId', result.id);
+        localStorage.setItem('name', result.name);
+        localStorage.setItem('email', result.email);
+        localStorage.setItem('isTourProvider', result.tourProvider);
+        localStorage.setItem('isLoggedIn', true);
+        window.location.href = '/';
+        }
+    )
     })
+
+    
+    
 }
 
 // useEffect(()=>{
-//   fetch("http://localhost:8000/all")
+//   fetch("http://localhost:8000/user/all")
 //   .then(res=>res.json())
 //   .then((result)=>{
-//     setStudents(result);
+//     console.log(result);
 //   }
 // )
 // },[])
+
     return (
 
         <Container>
@@ -68,7 +84,7 @@ const SignupForm = () => {
                         id="outlined-select-currency"
                         select
                         
-                        defaultValue="EUR"
+                        defaultValue="t"
                         helperText="Please select your role"
                         onChange={(e)=>setRole(e.target.value)}
                         >

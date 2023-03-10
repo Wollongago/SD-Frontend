@@ -1,36 +1,58 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { Box, Stack, Typography, Button , TextField, Container, Paper, makeStyles, MenuItem} from '@mui/material'
 
 
 
 const LoginForm = () => {
+    const navigate = useNavigate();
     const paperStyle={padding:'50px 20px', width:600,margin:"20px auto"}
     const[address,setAddress]=useState('')
     const[password,setPassword]=useState('')
+    const[isLoggedIn,setIsLoggedIn]=useState(false)
 
-    const handleClick=(e)=>{
+    const handleClick= async (e)=>{
     e.preventDefault()
-    const user={address, password}
-    console.log(user)
-    fetch("http://localhost:8080/student/add",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(user)
+    try {
 
-    }).then(()=>{
-    console.log("New User added")
-    })
+
+        const response = await fetch('http://localhost:8000/user/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 'email': address, 'password': password })
+        });
+
+        
+    
+        if (response.ok) {
+         
+            console.log("Logged in")
+            console.log("Storing info")
+            fetch(`http://localhost:8000/user/${address}`)
+                .then(res=>res.json())
+                .then((result)=>{
+                console.log("test")
+                console.log(result) 
+        
+                localStorage.setItem('userId', result.id);
+                localStorage.setItem('name', result.name);
+                localStorage.setItem('email', result.email);
+                localStorage.setItem('isTourProvider', result.tourProvider);
+                localStorage.setItem('isLoggedIn', true);
+                window.location.href = '/';
+                }
+            )
+
+        } else {
+          throw new Error('Login failed');
+        }
+      } catch (error) {
+        console.error(error);
+        // display error message to user
+      }
 }
 
-// useEffect(()=>{
-//   fetch("http://localhost:8000/all")
-//   .then(res=>res.json())
-//   .then((result)=>{
-//     setStudents(result);
-//   }
-// )
-// },[])
+
     return (
 
         <Container>
