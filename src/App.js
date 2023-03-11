@@ -11,7 +11,6 @@ import TourDetail from './pages/TourDetail';
 import CreateTour from './pages/CreateTour';
 import MyTours from './pages/MyTours';
 import EditTour from './pages/EditTour';
-import Profile from './pages/Profile';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -29,7 +28,6 @@ const App = () => (
       <Route path="/create" element={<CreateTour />} />
       <Route path="/mytours" element={<MyTours />} />
       <Route path="/edit-tour/:id" element={<EditTour />} />
-      <Route path="/profile" element={<Profile />} />
     </Routes>
     <Footer />
   </Box>

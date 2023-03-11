@@ -5,7 +5,7 @@ import EditTourForm from '../components/EditTourForm';
 
 
 
-const EditTour = () => (
+const CreateTour = () => (
     <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
 
         <EditTourForm />
@@ -13,4 +13,4 @@ const EditTour = () => (
     </Box>
 );
 
-export default EditTour;
+export default CreateTour;
