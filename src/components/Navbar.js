@@ -4,7 +4,7 @@ import { Stack, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 
-import Logo from '../assets/images/Logo.png';
+import Logo from '../assets/images/LogoFinal.png';
 
 
 
@@ -42,7 +42,7 @@ const Navbar = () => {
         {isTourProvider &&  <Link to="/create" style={{ textDecoration: 'none', color: '#3A1212'}}>Create</Link>}
         <Link to="/register" style={{ textDecoration: 'none', color: '#3A1212'}}>Register</Link>
         {isLoggedIn ? <Link onClick={() => {localStorage.clear().then(navigate("/")) }} style={{  textDecoration: 'none', color: '#3A1212'}}>Logout</Link> : <Link to="/login" style={{ textDecoration: 'none', color: '#3A1212'}}>Login</Link>}
-        {isLoggedIn && <Avatar  alt="user profile" src="src/assets/icons/gym.png" />}
+        {isLoggedIn && <Avatar onClick={()=> {navigate("/profile")}}  alt="user profile" src="src/assets/icons/gym.png" />}
       </Stack>
     </Stack>
   )

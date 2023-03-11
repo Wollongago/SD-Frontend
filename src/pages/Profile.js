@@ -1,16 +1,16 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import EditTourForm from '../components/EditTourForm';
+import ProfileForm from '../components/ProfileForm';
 
 
 
 
-const EditTour = () => (
+const Profile = () => (
     <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
 
-        <EditTourForm />
+        <ProfileForm />
 
     </Box>
 );
 
-export default EditTour;
+export default Profile;
