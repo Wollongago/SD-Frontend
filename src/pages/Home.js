@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Stack, Link, Button } from '@mui/material';
 
-import Exercises from '../components/Exercises';
+
 import SearchExercises from '../components/SearchTours';
 import HeroBanner from '../components/HeroBanner';
 import TourCard from '../components/TourCard';
@@ -11,8 +11,8 @@ import TourCard from '../components/TourCard';
 const Home = () => {
   const [exercises, setExercises] = useState([]);
   const [bodyPart, setBodyPart] = useState('all');
-  const[isLoggedIn,setIsLoggedIn]=useState(false)
-  const[isTourProvider,setIsTourProvider]=useState(false)
+  const[isLoggedIn,setIsLoggedIn]=useState()
+  const[isTourProvider,setIsTourProvider]=useState()
   useEffect(()=>{
 
     

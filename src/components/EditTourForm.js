@@ -43,11 +43,12 @@ const EditTourForm = () => {
     try {
         const myValue = localStorage.getItem('userId');
         setGuide(myValue)
+        console.log(id)
         console.log(name, desc, location, price, capacity, image, guide)
         console.log(JSON.stringify({ 'name': name, 'description': desc, 'location': location, 'price': parseFloat(price), 'maximumCapacity': parseInt(capacity), 'guideId': guide, 'image': image }))
 
-        const response = await fetch('http://localhost:8000/tour/create', {
-          method: 'POST',
+        const response = await fetch(`http://localhost:8000/tour/${id}`, {
+          method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 'name': name, 'description': desc, 'location': location, 'price': parseFloat(price), 'maximumCapacity': parseInt(capacity), 'guideId': guide, 'image': image })
         });
@@ -57,7 +58,7 @@ const EditTourForm = () => {
           navigate('/');
 
         } else {
-          throw new Error('Tour Create failed');
+          throw new Error('Tour Edit failed');
         }
       } catch (error) {
         console.error(error);

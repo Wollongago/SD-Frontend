@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button, Stack, Typography } from '@mui/material';
 
 const TourCard = ({ tour }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isTourProvider, setIsTourProvider] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isTourProvider, setIsTourProvider] = useState();
 
   useEffect(() => {
     setIsTourProvider(localStorage.getItem('isTourProvider'));

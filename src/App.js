@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Box } from '@mui/material';
 
 import './App.css';
-import ExerciseDetail from './pages/ExerciseDetail';
+
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -11,6 +11,7 @@ import TourDetail from './pages/TourDetail';
 import CreateTour from './pages/CreateTour';
 import MyTours from './pages/MyTours';
 import EditTour from './pages/EditTour';
+import Bookings from './pages/Bookings';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -26,8 +27,10 @@ const App = () => (
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/create" element={<CreateTour />} />
+      <Route path="/bookings" element={<Bookings />} />
       <Route path="/mytours" element={<MyTours />} />
       <Route path="/edit-tour/:id" element={<EditTour />} />
+      
     </Routes>
     <Footer />
   </Box>

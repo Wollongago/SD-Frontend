@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Stack, Link, Button } from '@mui/material';
 
-import Exercises from '../components/Exercises';
-import SearchExercises from '../components/SearchTours';
-import HeroBanner from '../components/HeroBanner';
 import TourCard from '../components/TourCard';
 
 

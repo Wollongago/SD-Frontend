@@ -7,7 +7,27 @@ import { useParams } from 'react-router-dom';
 
 const TourDetail = () => {
     const [tourDetail, setTourDetail] = useState({});
+    const [booking, setBooking] = useState([]);
     const { id } = useParams();
+
+    const handleClick=(e)=>{
+        e.preventDefault()
+        
+        fetch(`http://localhost:8000/user/${localStorage.getItem("userId")}/booking`,{
+            method:"PUT",
+            headers:{"Content-Type":"application/json"},
+            body:id
+        }).then(()=>{
+        console.log("Booked: ", id)
+        // refresh the page
+        booking.push(id)
+        console.log(booking)
+        localStorage.setItem("booking",JSON.stringify(booking))
+        })
+    
+        
+        
+    }
 
     useEffect(()=>{
         fetch(`http://localhost:8000/tour/${id}`)
@@ -16,8 +36,7 @@ const TourDetail = () => {
           console.log("test")
           console.log(result) 
           setTourDetail(result);
-        }
-      )
+        })
       },[])
       if (!tourDetail) return <div>No Data</div>;
     return (
@@ -31,7 +50,7 @@ const TourDetail = () => {
                     <Typography sx={{ fontSize: { lg: '24px', xs: '18px' } }} color="#4F4C4C">
                         {tourDetail.description}
                     </Typography>
-                    <Button sx={{ ml: '21px', color: '#fff', background: 'blue', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }} onClick={() => { console.log('onClick'); }} >
+                    <Button sx={{ ml: '21px', color: '#fff', background: 'blue', fontSize: '14px', borderRadius: '20px', textTransform: 'capitalize' }} onClick={handleClick} >
                         Book now!
                     </Button>
                     <Typography sx={{ fontSize: { lg: '24px', xs: '18px' } }} color="#4F4C4C">

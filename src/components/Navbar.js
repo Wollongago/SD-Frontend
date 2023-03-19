@@ -13,7 +13,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setIsTourProvider(localStorage.getItem('isTourProvider'))
-    console.log("Tour Provider:",isTourProvider)
+    console.log("Navbar Tour Provider:",isTourProvider)
     setIsLoggedIn(localStorage.getItem('isLoggedIn'))
     console.log("Logged in:", isLoggedIn)
     
@@ -22,8 +22,8 @@ const Navbar = () => {
   
   
   //use state to check if user is logged in
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isTourProvider, setIsTourProvider] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isTourProvider, setIsTourProvider] = useState();
   
   
   return (
@@ -38,7 +38,8 @@ const Navbar = () => {
         alignItems="flex-end"
       >
         <Link to="/" style={{ textDecoration: 'none', color: '#3A1212'}}>Home</Link>
-        {isTourProvider ? <Link to="/mytours" style={{ textDecoration: 'none', color: '#3A1212'}}>My Tours</Link> : <Link to="/bookings" style={{  textDecoration: 'none', color: '#3A1212'}}>My Bookings</Link>  }
+        {isTourProvider ? <Link to="/mytours" style={{ textDecoration: 'none', color: '#3A1212'}}>My Tours</Link> : null}
+        <Link to="/bookings" style={{  textDecoration: 'none', color: '#3A1212'}}>My Bookings</Link>  
         {isTourProvider &&  <Link to="/create" style={{ textDecoration: 'none', color: '#3A1212'}}>Create</Link>}
         <Link to="/register" style={{ textDecoration: 'none', color: '#3A1212'}}>Register</Link>
         {isLoggedIn ? <Link onClick={() => {localStorage.clear().then(navigate("/")) }} style={{  textDecoration: 'none', color: '#3A1212'}}>Logout</Link> : <Link to="/login" style={{ textDecoration: 'none', color: '#3A1212'}}>Login</Link>}
