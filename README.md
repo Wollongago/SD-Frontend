@@ -25,23 +25,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="/src/assets/icons/gym.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/images/Logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Gym Exercises Searcher</h3>
 
   <p align="center">
-    A web app that helps with searching for alternative exercises
-    <br />
-    <a href="https://github.com/malkmaneth/gym_exercises"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://exercise-alts.netlify.app/">View Demo</a>
-    ·
-    <a href="https://github.com/malkmaneth/gym_exercises/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/malkmaneth/gym_exercises/issues">Request Feature</a>
-  </p>
+    A web app that helps with searching for local tours
 </div>
 
 ## To run
