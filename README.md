@@ -28,7 +28,7 @@
     <img src="src/assets/images/Logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Gym Exercises Searcher</h3>
+<h3 align="center">LocalGuru</h3>
 
   <p align="center">
     A web app that helps with searching for local tours
